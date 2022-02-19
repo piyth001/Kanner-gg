@@ -26,18 +26,22 @@ end)
 
 --- Elixir
 
-Section:NewToggle("ToggleText", "ToggleInfo", function(state)
+Section:NewToggle("Auto Elixir", "ToggleInfo", function(state)
     if state then
         _G.Elixir = state
         while _G.Elixir do wait()
-            local Hane = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16337.23046875, 18.36162567138672, -3469.281494140625)
-            local Jane = game:GetService("ReplicatedStorage").Remotes.TappingEvent:FireServer()
+            local Hane = game.Players.LocalPlayer.Character.HumanoidRootPart
+            Hane.CFrame = CFrame.new(-16337.23046875, 18.36162567138672, -3469.281494140625)
+            local Jane = game:GetService("ReplicatedStorage").Remotes.TappingEvent
+            Jane:FireServer()
         end
     else
         _G.Elixir = state
         while _G.Elixir do wait()
-            local Hane = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16337.23046875, 18.36162567138672, -3469.281494140625)
-            local Jane = game:GetService("ReplicatedStorage").Remotes.TappingEvent:FireServer()
+            local Hane = game.Players.LocalPlayer.Character.HumanoidRootPart
+            Hane.CFrame = CFrame.new(-16337.23046875, 18.36162567138672, -3469.281494140625)
+            local Jane = game:GetService("ReplicatedStorage").Remotes.TappingEvent
+            Jane:FireServer()
         end
     end
 end)
