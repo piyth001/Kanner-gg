@@ -1,3 +1,5 @@
+
+   
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("TuNaFish Hub", "Ocean")
 
@@ -164,6 +166,11 @@ Section:NewButton("One Pucnch Island", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1984.66113, 26.9424782, -7529.9541, -0.0682560205, 0, -0.997667849, 0, 1, 0, 0.997667849, 0, -0.0682560205)
 end)
 
+
+Section:NewButton("Clover Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16415, 24.0214, -3592.38)
+end)
+
 -- egg
 local Tab = Window:NewTab("Warp Egg")
 local Section = Tab:NewSection("Egg")
@@ -276,6 +283,14 @@ end)
 
 Section:NewButton("One Punch Secret", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1905.0791, 21.7283325, -7639.83252, -0.132436767, 0.000843387563, -0.991191089, 0.0036081546, 0.999993443, 0.000368778186, 0.99118489, -0.00352753093, -0.132438943)
+end)
+
+Section:NewButton("Clover", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16383.416015625, 20.67530059814453, -3567.96044921875)
+end)
+
+Section:NewButton("Clover Secret", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-15976.763671875, 15.797974586486816, -3092.947265625)
 end)
 
 ----------
@@ -789,5 +804,4 @@ Section:NewToggle("Speed", "ToggleInfo", function(state)
         end
     end
 end)
-
 
