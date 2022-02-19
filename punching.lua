@@ -34,7 +34,9 @@ Section:NewToggle("Auto Elixir", "ToggleInfo", function(state)
             Hane.CFrame = CFrame.new(-16337.23046875, 18.36162567138672, -3469.281494140625)
             local Jane = game:GetService("ReplicatedStorage").Remotes.TappingEvent
             Jane:FireServer()
-            wait(0.5) game.Players.LocalPlayer.Character.Humanoid.Jump = true
+            wait(0.5) 
+            local Vann = game.Players.LocalPlayer.Character
+            Vann.Humanoid.Jump = true
         end
     else
         _G.Elixir = state
@@ -43,7 +45,9 @@ Section:NewToggle("Auto Elixir", "ToggleInfo", function(state)
             Hane.CFrame = CFrame.new(-16337.23046875, 18.36162567138672, -3469.281494140625)
             local Jane = game:GetService("ReplicatedStorage").Remotes.TappingEvent
             Jane:FireServer()
-            wait(0.5) game.Players.LocalPlayer.Character.Humanoid.Jump = true
+             wait(0.5) 
+            local Vann = game.Players.LocalPlayer.Character
+            Vann.Humanoid.Jump = true
         end
     end
 end)
