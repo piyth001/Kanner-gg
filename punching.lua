@@ -309,6 +309,10 @@ Section:NewButton("Elixir2", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23341.4863, 22.9626274, -169.146866, 0.0776079744, -8.40853964e-09, -0.996983945, 1.70487113e-09, 1, -8.30126545e-09, 0.996983945, -1.0554847e-09, 0.0776079744)
 end)
 
+Section:NewButton("Elixir3", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16338.6455078125, 18.361621856689453, -3469.888916015625)
+end)
+
 Section:NewButton("Tranning x2", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-10889.3555, 22.590807, -1105.88184, 0.717329085, -6.02775003e-08, -0.696734488, -4.57369387e-09, 1, -9.12231854e-08, 0.696734488, 6.86236987e-08, 0.717329085)
 end)
