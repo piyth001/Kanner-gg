@@ -214,6 +214,14 @@ Section:NewButton("Clover Island", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16415, 24.0214, -3592.38)
 end)
 
+Section:NewButton("Sword Art Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-56395.4844, 29.1583061, -7583.80371, -0.0682560205, 0, -0.997667849, 0, 1, 0, 0.997667849, 0, -0.0682560205)
+end)
+
+Section:NewButton("TGOH Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-61274.1562, 42.3617706, -7616.84033, 0.997668862, -0, -0.0682409108, 0, 1, -0, 0.0682409108, 0, 0.997668862)
+end)
+
 -- egg
 local Tab = Window:NewTab("Warp Egg")
 local Section = Tab:NewSection("Egg")
@@ -335,6 +343,23 @@ end)
 Section:NewButton("Clover Secret", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-15976.763671875, 15.797974586486816, -3092.947265625)
 end)
+
+Section:NewButton("Sword Art", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-56380.8203125, 25.950773239135742, -7599.80859375)
+end)
+
+Section:NewButton("Sword Art Secret", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-56282.9609375, 21.61655044555664, -7993.2626953125)
+end)
+
+Section:NewButton("TGOH", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-61279.125, 39.15360641479492, -7632.822265625)
+end)
+
+Section:NewButton("TGOH Secret", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-60616.6328125, 55.20751953125, -7516.037109375)
+end)
+
 
 ----------
 
@@ -851,4 +876,9 @@ Section:NewToggle("Speed", "ToggleInfo", function(state)
         end
     end
 end)
----
+
+-- By piyth001
+
+-- map:Anime puching Simulator
+
+-- end
