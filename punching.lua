@@ -360,6 +360,14 @@ Section:NewButton("TGOH Secret", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-60616.6328125, 55.20751953125, -7516.037109375)
 end)
 
+Section:NewButton("Mob", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2904.8828125, 23.47612190246582, -36623.015625)
+end)
+
+Section:NewButton("Mob Secret", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2756.14404296875, 202.64125061035156, -36247.609375)
+end)
+
 
 ----------
 
