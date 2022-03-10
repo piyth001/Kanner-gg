@@ -1,0 +1,302 @@
+--Vars
+LocalPlayer = game:GetService("Players").LocalPlayer
+Camera = workspace.CurrentCamera
+VirtualUser = game:GetService("VirtualUser")
+MarketplaceService = game:GetService("MarketplaceService")
+
+--Get Current Vehicle
+function GetCurrentVehicle()
+    return LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") and LocalPlayer.Character.Humanoid.SeatPart and LocalPlayer.Character.Humanoid.SeatPart.Parent
+end
+
+--Notification Handler
+function SendNotification(Title, Message, Duration)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = Title;
+        Text = Message;
+        Duration = Duration;
+    })
+end
+
+--Regular TP
+function TP(cframe)
+    GetCurrentVehicle():SetPrimaryPartCFrame(cframe)
+end
+
+--Velocity TP
+function VelocityTP(cframe)
+    TeleportSpeed = math.random(200, 600)
+    Car = GetCurrentVehicle()
+    local BodyGyro = Instance.new("BodyGyro", Car.PrimaryPart)
+    BodyGyro.P = 5000
+    BodyGyro.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+    BodyGyro.CFrame = Car.PrimaryPart.CFrame
+    local BodyVelocity = Instance.new("BodyVelocity", Car.PrimaryPart)
+    BodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+    BodyVelocity.Velocity = CFrame.new(Car.PrimaryPart.Position, cframe.p).LookVector * TeleportSpeed
+    wait((Car.PrimaryPart.Position - cframe.p).Magnitude / TeleportSpeed)
+    BodyVelocity.Velocity = Vector3.new()
+    wait(0.1)
+    BodyVelocity:Destroy()
+    BodyGyro:Destroy()
+end
+
+--Auto Farm
+SpawnLation = CFrame.new(Vector3.new(-5650.19580078125, 14.716055870056152, -4507.96435546875), Vector3.new(-187, 25.7, 1982))
+StartPosition1 = CFrame.new(Vector3.new(-5812.78857421875, 13.686124801635742, -4594.08154296875), Vector3.new(-187, 25.7, 1982))
+StartPosition2 = CFrame.new(Vector3.new(-6478.38330078125, 13.697705268859863, -4202.1376953125), Vector3.new(-187, 25.7, 1982))
+StartPosition3 = CFrame.new(Vector3.new(-7257.46484375, 17.399269104003906, -3880.787353515625), Vector3.new(-187, 25.7, 1982))
+StartPosition4 = CFrame.new(Vector3.new(-7448.15673828125, 15.783953666687012, -4002.89013671875), Vector3.new(-187, 25.7, 1982))
+StartPosition5 = CFrame.new(Vector3.new(-7507.25244140625, 16.444238662719727, -4161.48486328125), Vector3.new(-187, 25.7, 1982))
+StartPosition6 = CFrame.new(Vector3.new(-7422.4189453125, 18.222265243530273, -4372.58740234375), Vector3.new(-187, 25.7, 1982))
+StartPosition7 = CFrame.new(Vector3.new(-6993.599609375, 100.73936462402344, -5174.41357421875), Vector3.new(-187, 25.7, 1982))
+StartPosition8 = CFrame.new(Vector3.new(-6968.2216796875, 100.91532897949219, -5320.26708984375), Vector3.new(-187, 25.7, 1982))
+StartPosition9 = CFrame.new(Vector3.new(-7038.71484375, 100.34957885742188, -5393.94091796875), Vector3.new(-187, 25.7, 1982))
+StartPosition10 = CFrame.new(Vector3.new(-7338.26806640625, 100.18122863769531, -5485.67431640625), Vector3.new(-187, 25.7, 1982))
+StartPosition11 = CFrame.new(Vector3.new(-7490.7333984375, 99.76947784423828, -5416.71728515625), Vector3.new(-187, 25.7, 1982))
+StartPosition12 = CFrame.new(Vector3.new(-7516.97607421875, 106.80435180664062, -5174.3134765625), Vector3.new(-187, 25.7, 1982))
+StartPosition13 = CFrame.new(Vector3.new(-7558.82080078125, 121.63182067871094, -4801.6494140625), Vector3.new(-187, 25.7, 1982))
+StartPosition14 = CFrame.new(Vector3.new(-7669.16845703125, 121.62157440185547, -4730.13134765625), Vector3.new(-187, 25.7, 1982))
+StartPosition15 = CFrame.new(Vector3.new(-8215.916015625, 121.61603546142578, -4747.22607421875), Vector3.new(-187, 25.7, 1982))
+StartPosition16 = CFrame.new(Vector3.new(-9004.361328125, 121.62393188476562, -5313.931640625), Vector3.new(-187, 25.7, 1982))
+StartPosition17 = CFrame.new(Vector3.new(-9586.9150390625, 96.9539794921875, -5347.1103515625), Vector3.new(-187, 25.7, 1982))
+StartPosition18 = CFrame.new(Vector3.new(-10928.3740234375, 161.62770080566406, -4791.45751953125), Vector3.new(-187, 25.7, 1982))
+StartPosition19 = CFrame.new(Vector3.new(-11160.5078125, 164.71287536621094, -4847.4541015625), Vector3.new(-187, 25.7, 1982))
+StartPosition20 = CFrame.new(Vector3.new(-11187.2861328125, 149.28045654296875, -5147.62744140625), Vector3.new(-187, 25.7, 1982))
+StartPosition21 = CFrame.new(Vector3.new(-10760.7822265625, 113.93352508544922, -5597.64599609375), Vector3.new(-187, 25.7, 1982))
+StartPosition22 = CFrame.new(Vector3.new(-10339.31640625, 99.07654571533203, -6427.501953125), Vector3.new(-187, 25.7, 1982))
+StartPosition23 = CFrame.new(Vector3.new(-10067.0458984375, 125.29720306396484, -6791.5400390625), Vector3.new(-187, 25.7, 1982))
+StartPosition24 = CFrame.new(Vector3.new(-9363.0419921875, 125.20765686035156, -7103.42236328125), Vector3.new(-187, 25.7, 1982))
+StartPosition25 = CFrame.new(Vector3.new(-9056.3310546875, 125.05142211914062, -6920.11474609375), Vector3.new(-187, 25.7, 1982))
+StartPosition26 = CFrame.new(Vector3.new(-8445.39453125, 126.6115951538086, -6085.57763671875), Vector3.new(-187, 25.7, 1982))
+StartPosition27 = CFrame.new(Vector3.new(-8452.4052734375, 127.77691650390625, -5791.74609375), Vector3.new(-187, 25.7, 1982))
+StartPosition28 = CFrame.new(Vector3.new(-8426.796875, 128.32989501953125, -5643.857421875), Vector3.new(-187, 25.7, 1982))
+StartPosition29 = CFrame.new(Vector3.new(-8300.240234375, 128.9830322265625, -5583.78173828125), Vector3.new(-187, 25.7, 1982))
+StartPosition30 = CFrame.new(Vector3.new(-7917.9453125, 142.12132263183594, -5831.357421875), Vector3.new(-187, 25.7, 1982))
+StartPosition31 = CFrame.new(Vector3.new(-7853.884765625, 128.25265502929688, -6026.7529296875), Vector3.new(-187, 25.7, 1982))
+StartPosition32 = CFrame.new(Vector3.new(-8319.2724609375, 116.6463851928711, -6502.9541015625), Vector3.new(-187, 25.7, 1982))
+StartPosition33 = CFrame.new(Vector3.new(-8350.3193359375, 93.01280975341797, -7096.6181640625), Vector3.new(-187, 25.7, 1982))
+StartPosition34 = CFrame.new(Vector3.new(-8258.0009765625, 84.27992248535156, -7316.47119140625), Vector3.new(-187, 25.7, 1982))
+StartPosition35 = CFrame.new(Vector3.new(-7861.6083984375, 66.96084594726562, -7468.59423828125), Vector3.new(-187, 25.7, 1982))
+StartPosition36 = CFrame.new(Vector3.new(-7331.845703125, 46.60264205932617, -7696.919921875), Vector3.new(-187, 25.7, 1982))
+StartPosition37 = CFrame.new(Vector3.new(-7102.34375, 50.293739318847656, -7582.85009765625), Vector3.new(-187, 25.7, 1982))
+StartPosition38 = CFrame.new(Vector3.new(-7018.34326171875, 53.799888610839844, -7018.75341796875), Vector3.new(-187, 25.7, 1982))
+StartPosition39 = CFrame.new(Vector3.new(-7265.05224609375, 15.084722518920898, -6398.0224609375), Vector3.new(-187, 25.7, 1982))
+StartPosition40 = CFrame.new(Vector3.new(-7078.97607421875, 13.71435546875, -5970.96142578125), Vector3.new(-187, 25.7, 1982))
+StartPosition41 = CFrame.new(Vector3.new(-6312.69140625, 13.708354949951172, -5381.81396484375), Vector3.new(-187, 25.7, 1982))
+StartPosition42 = CFrame.new(Vector3.new(-5992.85791015625, 13.721037864685059, -5214.853515625), Vector3.new(-187, 25.7, 1982))
+StartPosition43 = CFrame.new(Vector3.new(-5513.20166015625, 13.725310325622559, -5376.205078125), Vector3.new(-187, 25.7, 1982))
+StartPosition44 = CFrame.new(Vector3.new(-5497.833984375, 13.717705726623535, -5589.181640625), Vector3.new(-187, 25.7, 1982))
+StartPosition45 = CFrame.new(Vector3.new(-5692.55078125, 13.70687484741211, -6090.3623046875), Vector3.new(-187, 25.7, 1982))
+StartPosition46 = CFrame.new(Vector3.new(-5304.05859375, 13.708025932312012, -6464.24072265625), Vector3.new(-187, 25.7, 1982))
+StartPosition47 = CFrame.new(Vector3.new(-5057.3486328125, 13.702604293823242, -6353.38232421875), Vector3.new(-187, 25.7, 1982))
+StartPosition48 = CFrame.new(Vector3.new(-4938.37939453125, 13.674223899841309, -6082.65087890625), Vector3.new(-187, 25.7, 1982))
+StartPosition49 = CFrame.new(Vector3.new(-5059.63525390625, 13.671295166015625, -5681.38037109375), Vector3.new(-187, 25.7, 1982))
+StartPosition50 = CFrame.new(Vector3.new(-5625.45458984375, 13.68809700012207, -4799.35693359375), Vector3.new(-187, 25.7, 1982))
+
+AutoFarmFunc = coroutine.create(function()
+    while wait(20) do
+        if not AutoFarm then
+            AutoFarmRunning = false
+            coroutine.yield()
+        end
+        AutoFarmRunning = true
+        pcall(function()
+            if not GetCurrentVehicle() and tick() - (LastNotif or 0) > 5 then
+                LastNotif = tick()
+                SendNotification("Aloha Scripts", "Please Enter A Vehicle!")
+            else
+                TP(SpawnLation + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(10)
+                TP(StartPosition1 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition2 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition3 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition4 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition5 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition6 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition7 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition8 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition9 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition10 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition11 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition12 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition13 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition14 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition15 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition16 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition17 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition18 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition19 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition20 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition21 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition22 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition23 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition24 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition25 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition26 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition27 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition28 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition29 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition30 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition31 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition32 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition33 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition34 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition35 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition36 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition37 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition38 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition39 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition40 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition41 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition42 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition43 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition44 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition45 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition46 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition47 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition48 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition49 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                TP(StartPosition50 + (TouchTheRoad and Vector3.new() or Vector3.new(0, 1, 0)))
+                wait(1)
+                
+            end
+        end)
+    end
+end)
+
+
+--Anti AFK
+AntiAFK = true
+LocalPlayer.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new(), Camera.CFrame)
+end)
+
+--UI
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local venyx = library.new(MarketplaceService:GetProductInfo(game.PlaceId).Name)
+
+--Themes
+local themes = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),
+    TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+--Pages
+local page1 = venyx:addPage("Main")
+local page2 = venyx:addPage("Other")
+
+--Page 1
+local FirstSection1 = page1:addSection("Auto Farm")
+local FirstSection2 = page1:addSection("Options")
+
+FirstSection1:addToggle(
+    "Enabled",
+    nil,
+    function(value)
+        AutoFarm = value
+        if value and not AutoFarmRunning then
+            coroutine.resume(AutoFarmFunc)
+        end
+    end
+)
+FirstSection2:addToggle(
+    "Touch The Ground",
+    nil,
+    function(value)
+        TouchTheRoad = value
+    end
+)
+
+--Page 2
+local SecondSection1 = page2:addSection("Info")
+local SecondSection2 = page2:addSection("Settings")
+
+SecondSection1:addButton("Credits:")
+SecondSection1:addButton("alohabeach#3448 - scripter", function() setclipboard("alohabeach#3448") jailbreakNotify("Copied to clipboard.") end)
+SecondSection1:addButton("Dino#3523 - ui library", function() setclipboard("Dino#3523") jailbreakNotify("Copied to clipboard.") end)
+SecondSection1:addButton("Discord:")
+SecondSection1:addButton("https://dsc.gg/CarHub", function() setclipboard("https://dsc.gg/CarHub") jailbreakNotify("Copied to clipboard.") end)
+SecondSection2:addToggle(
+    "Anti AFK",
+    true,
+    function(value)
+        AntiAFK = value
+    end
+)
+SecondSection2:addKeybind(
+    "Toggle Keybind",
+    Enum.KeyCode.RightShift,
+    function()
+        venyx:toggle()
+    end,
+    function(key)
+        Keybind = key.KeyCode.Name
+    end
+)
+for theme, color in pairs(themes) do
+    SecondSection2:addColorPicker(
+        theme,
+        color,
+        function(color3)
+            venyx:setTheme(theme, color3)
+        end
+    )
+end
+
+--load
+venyx:SelectPage(venyx.pages[1], true)
