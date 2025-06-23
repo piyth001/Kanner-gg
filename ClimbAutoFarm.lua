@@ -210,7 +210,7 @@ BUTTON1.InputBegan:Connect(function(input)
 				end
 			end)
 		else
-			settings_farm.AutoFarm = false
+			_G.settings_farm.AutoFarm = false
 			BUTTON1.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
 			BUTTON1.Text = "CLOSE"
 		end
@@ -335,7 +335,7 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint)
 		part.Name = name.."CHECK" 
 		part.Size = Vector3.new(1000,1000,50)
 		part.Position = cframech
-		part.Transparency = 0
+		part.Transparency = 1
 		part.Touched:Connect(function(plr)
 			if tostring(plr.Parent) == tostring(char) then
 				NAME_POINT.Value = part.Name
