@@ -1,22 +1,21 @@
 -- Auto Farm SETTINGS
-
+setings_script = {
+	["ScriptCheck"] = false,
+}
 settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
 }
-
+setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
+if setings_script.ScriptCheck then
+	game.Players.localPlayer:Kick("This script is not supported in this game.")
+	return
+end
 local PlacId = game.PlaceId
-if PlacId ~= 1234567890 then
+if PlacId ~= 123921593837160 then
 	game.Players.LocalPlayer:Kick("This script is not supported in this game.")
 	return
 end
-
-repeat
-	task.wait(.01)
-	game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
-	game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-end
-until game:IsLoaded() and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 
 local lasttime = 0
 
