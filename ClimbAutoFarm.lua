@@ -13,6 +13,7 @@ end
 local PlacId = game.PlaceId
 if PlacId ~= 123921593837160 then
 	game.Players.LocalPlayer:Kick("This script is not supported in this game.")
+	game:GetService("TeleportService"):Teleport(123921593837160)
 	return
 end
 
