@@ -1,6 +1,6 @@
 -- Auto Farm SETTINGS
 
-settings_farm = {
+_G.settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
 }
@@ -98,14 +98,14 @@ end)
 
 BUTTON1.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		if not settings_farm.AutoFarm then
-			settings_farm.AutoFarm = true
+		if not _G.settings_farm.AutoFarm then
+			_G.settings_farm.AutoFarm = true
 			BUTTON1.BackgroundColor3 = Color3.new(0.0705882, 1, 0.0235294)
 			BUTTON1.Text = "OPEN"
-			settings_farm.connection = render.RenderStepped:Connect(function()
+			_G.settings_farm.connection = render.RenderStepped:Connect(function()
 				if (tick() - lasttime) > 0.01 then
 					
-					if not settings_farm.AutoFarm then settings_farm.connection:Disconnect() end
+					if not settings_farm.AutoFarm then _G.settings_farm.connection:Disconnect() end
 					
 					if tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==1 then
 						if NAME_POINT.Value ==  "PR1" then
