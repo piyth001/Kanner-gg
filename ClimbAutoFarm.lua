@@ -6,11 +6,12 @@ settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
 }
-setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
+
 if setings_script.ScriptCheck then
 	game.Players.localPlayer:Kick("This script is not supported in this game.")
 	return
 end
+setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
 local PlacId = game.PlaceId
 if PlacId ~= 123921593837160 then
 	game.Players.LocalPlayer:Kick("This script is not supported in this game.")
