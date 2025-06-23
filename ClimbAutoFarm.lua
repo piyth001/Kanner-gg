@@ -16,9 +16,6 @@ if PlacId ~= 123921593837160 then
 	return
 end
 
-repeat
-	
-until game:IsLoaded()
 _G.ScritpStatus = true
 setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
 local lasttime = 0
