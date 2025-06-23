@@ -102,6 +102,7 @@ BUTTON1.InputBegan:Connect(function(input)
 			_G.settings_farm.AutoFarm = true
 			BUTTON1.BackgroundColor3 = Color3.new(0.0705882, 1, 0.0235294)
 			BUTTON1.Text = "OPEN"
+			_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
 		else
 			_G.settings_farm.AutoFarm = false
 			BUTTON1.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
@@ -112,7 +113,8 @@ end)
 
 
 --	setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.Position))
-_G.settings_farm.connection = render.RenderStepped:Connect(function()
+_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
+function autofarm()
 	if (tick() - lasttime) > 0.01 then
 		
 		if not _G.settings_farm.AutoFarm then _G.settings_farm.connection:Disconnect() end
@@ -217,7 +219,7 @@ _G.settings_farm.connection = render.RenderStepped:Connect(function()
 		end	
 		lasttime = tick()
 	end
-end)
+end
 
 -- Create Part in Map
 function create_Part_Point()
