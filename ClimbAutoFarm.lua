@@ -1,5 +1,5 @@
 -- Auto Farm SETTINGS
-_G.ScritpStatus = false
+
 settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
