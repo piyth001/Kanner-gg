@@ -17,6 +17,11 @@ if PlacId ~= 123921593837160 then
 	game.Players.LocalPlayer:Kick("This script is not supported in this game.")
 	return
 end
+
+repeat
+	
+until game:IsLoaded() and game.Players.LocalPlayer.CharacterAdded
+
 setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
 local lasttime = 0
 
@@ -147,7 +152,7 @@ BUTTON1.InputBegan:Connect(function(input)
 						if NAME_POINT.Value ==  "OR1" then
 							char.Humanoid:Move(Vector3.new(0,0,-1))
 						elseif NAME_POINT.Value == "OR2" then
-							char.Humanoid:MoveTo(Vector3.new(14996.7353515625, 14404.642578125, -136.61813354492188))
+							char.Humanoid:MoveTo(Vector3.new(14996.7353515625, 14404.642578125, -134.61813354492188))
 						elseif NAME_POINT.Value == "OR3" then
 							char.Humanoid:Move(Vector3.new(0,0,-1))
 						elseif NAME_POINT.Value == "ORCHECK" then
