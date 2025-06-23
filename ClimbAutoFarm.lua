@@ -105,7 +105,7 @@ BUTTON1.InputBegan:Connect(function(input)
 			_G.settings_farm.connection = render.RenderStepped:Connect(function()
 				if (tick() - lasttime) > 0.01 then
 					
-					if not settings_farm.AutoFarm then _G.settings_farm.connection:Disconnect() end
+					if not _G.settings_farm.AutoFarm then _G.settings_farm.connection:Disconnect() end
 					
 					if tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==1 then
 						if NAME_POINT.Value ==  "PR1" then
