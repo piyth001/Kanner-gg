@@ -5,6 +5,18 @@ settings_farm = {
 	["connection"] = nil
 }
 
+local PlacId = game.PlaceId
+if PlacId ~= 1234567890 then
+	game.Players.LocalPlayer:Kick("This script is not supported in this game.")
+	return
+end
+
+repeat
+	task.wait(.01)
+	game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+	game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+end
+until game:IsLoaded() and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
 
 local lasttime = 0
 
@@ -139,9 +151,9 @@ BUTTON1.InputBegan:Connect(function(input)
 						elseif NAME_POINT.Value == "OR3" then
 							char.Humanoid:Move(Vector3.new(0,0,-1))
 						elseif NAME_POINT.Value == "ORCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(14997.3564453125, 0, -92.8354034423828)
+							char.HumanoidRootPart.CFrame = CFrame.new(14997.2783203125, 3.352501392364502, -135.09463500976562)
 						else
-							char.HumanoidRootPart.CFrame = CFrame.new(14997.3564453125, 0, -92.8354034423828)
+							char.HumanoidRootPart.CFrame = CFrame.new(14997.2783203125, 3.352501392364502, -135.09463500976562)
 						end
 					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==5 then
 						if NAME_POINT.Value ==  "IR1" then
