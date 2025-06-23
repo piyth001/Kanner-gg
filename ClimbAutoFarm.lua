@@ -6,6 +6,7 @@ settings_farm = {
 }
 
 if _G.ScritpStatus then
+	game:GetService("TeleportService"):Teleport(123921593837160)
 	game.Players.localPlayer:Kick("This script is not supported in this game.")
 	return
 end
