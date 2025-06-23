@@ -102,113 +102,6 @@ BUTTON1.InputBegan:Connect(function(input)
 			_G.settings_farm.AutoFarm = true
 			BUTTON1.BackgroundColor3 = Color3.new(0.0705882, 1, 0.0235294)
 			BUTTON1.Text = "OPEN"
-			_G.settings_farm.connection = render.RenderStepped:Connect(function()
-				if (tick() - lasttime) > 0.01 then
-					
-					if not _G.settings_farm.AutoFarm then _G.settings_farm.connection:Disconnect() end
-					
-					if tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==1 then
-						if NAME_POINT.Value ==  "PR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "PR2" then
-							char.Humanoid:MoveTo(Vector3.new(-4.000385761260986, 14400.9970703125, -57.12051773071289))
-						elseif NAME_POINT.Value == "PR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "PRCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(-4.442832946777344, 1.000840663909912, -56.28688049316406)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(-4.442832946777344, 1.000840663909912, -56.28688049316406)
-						end
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==2 then
-						if NAME_POINT.Value ==  "DR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "DR2" then
-							char.Humanoid:MoveTo(Vector3.new(4998.923828125, 14402.9365234375, -58.3597640991211))
-						elseif NAME_POINT.Value == "DR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "DRCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(4999.2822265625, 3.0617189407348633, -62.90607452392578)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(4999.2822265625, 3.0617189407348633, -62.90607452392578)
-						end
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==3 then
-						if NAME_POINT.Value ==  "SR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "SR2" then
-							char.Humanoid:MoveTo(Vector3.new(10001.2939453125, 14404.140625, -31.9701156616211))
-						elseif NAME_POINT.Value == "SR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "SRCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(10000.84375, 2.4037294387817383, -34.745391845703125)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(10000.84375, 2.4037294387817383, -34.745391845703125)
-						end
-						
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==4 then
-						if NAME_POINT.Value ==  "OR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "OR2" then
-							char.Humanoid:MoveTo(Vector3.new(14996.7353515625, 14404.642578125, -134.61813354492188))
-						elseif NAME_POINT.Value == "OR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "ORCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(14997.2783203125, 3.352501392364502, -135.09463500976562)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(14997.2783203125, 3.352501392364502, -135.09463500976562)
-						end
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==5 then
-						if NAME_POINT.Value ==  "IR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "IR2" then
-							char.Humanoid:MoveTo(Vector3.new(20000.912109375, 14401.9912109375, -74.8295440673828))
-						elseif NAME_POINT.Value == "IR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "IRCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(20000.294921875, 1.730976939201355, -76.93538665771484)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(20000.294921875, 1.730976939201355, -76.93538665771484)
-						end
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==6 then
-						if NAME_POINT.Value ==  "UR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "UR2" then
-							char.Humanoid:MoveTo(Vector3.new(25000.142578125, 14406.12890625, -37.93489837646484))
-						elseif NAME_POINT.Value == "UR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "URCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(25000.173828125, 4.090233325958252, -39.04209518432617)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(25000.173828125, 4.090233325958252, -39.04209518432617)
-						end
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==7 then
-						if NAME_POINT.Value ==  "YR1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "YR2" then
-							char.Humanoid:MoveTo(Vector3.new(30000.89453125, 14401.49609375, -72.16964721679688))
-						elseif NAME_POINT.Value == "YR3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "YRCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(30000.212890625, 1.9342588186264038, -74.91072082519531)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(30000.212890625, 1.9342588186264038, -74.91072082519531)
-						end
-					elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==8 then
-						if NAME_POINT.Value ==  "ER1" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "ER2" then
-							char.Humanoid:MoveTo(Vector3.new(35000.15625, 14405.56640625, -37.87808990478516))
-						elseif NAME_POINT.Value == "ER3" then
-							char.Humanoid:Move(Vector3.new(0,0,-1))
-						elseif NAME_POINT.Value == "ERCHECK" then
-							char.HumanoidRootPart.CFrame = CFrame.new(35000.125, 4.7001543045043945, -39.22102737426758)
-						else
-							char.HumanoidRootPart.CFrame = CFrame.new(35000.125, 4.7001543045043945, -39.22102737426758)
-						end
-					end
-					
-					lasttime = tick()
-				end
-			end)
 		else
 			_G.settings_farm.AutoFarm = false
 			BUTTON1.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
@@ -219,8 +112,112 @@ end)
 
 
 --	setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.Position))
-
-
+_G.settings_farm.connection = render.RenderStepped:Connect(function()
+	if (tick() - lasttime) > 0.01 then
+		
+		if not _G.settings_farm.AutoFarm then _G.settings_farm.connection:Disconnect() end
+		
+		if tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==1 then
+			if NAME_POINT.Value ==  "PR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "PR2" then
+				char.Humanoid:MoveTo(Vector3.new(-4.000385761260986, 14400.9970703125, -57.12051773071289))
+			elseif NAME_POINT.Value == "PR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "PRCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(-4.442832946777344, 1.000840663909912, -56.28688049316406)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(-4.442832946777344, 1.000840663909912, -56.28688049316406)
+			end
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==2 then
+			if NAME_POINT.Value ==  "DR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "DR2" then
+				char.Humanoid:MoveTo(Vector3.new(4998.923828125, 14402.9365234375, -58.3597640991211))
+			elseif NAME_POINT.Value == "DR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "DRCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(4999.2822265625, 3.0617189407348633, -62.90607452392578)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(4999.2822265625, 3.0617189407348633, -62.90607452392578)
+			end
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==3 then
+			if NAME_POINT.Value ==  "SR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "SR2" then
+				char.Humanoid:MoveTo(Vector3.new(10001.2939453125, 14404.140625, -31.9701156616211))
+			elseif NAME_POINT.Value == "SR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "SRCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(10000.84375, 2.4037294387817383, -34.745391845703125)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(10000.84375, 2.4037294387817383, -34.745391845703125)
+			end
+			
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==4 then
+			if NAME_POINT.Value ==  "OR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "OR2" then
+				char.Humanoid:MoveTo(Vector3.new(14996.7353515625, 14404.642578125, -134.61813354492188))
+			elseif NAME_POINT.Value == "OR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "ORCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(14997.2783203125, 3.352501392364502, -135.09463500976562)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(14997.2783203125, 3.352501392364502, -135.09463500976562)
+			end
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==5 then
+			if NAME_POINT.Value ==  "IR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "IR2" then
+				char.Humanoid:MoveTo(Vector3.new(20000.912109375, 14401.9912109375, -74.8295440673828))
+			elseif NAME_POINT.Value == "IR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "IRCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(20000.294921875, 1.730976939201355, -76.93538665771484)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(20000.294921875, 1.730976939201355, -76.93538665771484)
+			end
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==6 then
+			if NAME_POINT.Value ==  "UR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "UR2" then
+				char.Humanoid:MoveTo(Vector3.new(25000.142578125, 14406.12890625, -37.93489837646484))
+			elseif NAME_POINT.Value == "UR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "URCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(25000.173828125, 4.090233325958252, -39.04209518432617)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(25000.173828125, 4.090233325958252, -39.04209518432617)
+			end
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==7 then
+			if NAME_POINT.Value ==  "YR1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "YR2" then
+				char.Humanoid:MoveTo(Vector3.new(30000.89453125, 14401.49609375, -72.16964721679688))
+			elseif NAME_POINT.Value == "YR3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "YRCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(30000.212890625, 1.9342588186264038, -74.91072082519531)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(30000.212890625, 1.9342588186264038, -74.91072082519531)
+			end
+		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==8 then
+			if NAME_POINT.Value ==  "ER1" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "ER2" then
+				char.Humanoid:MoveTo(Vector3.new(35000.15625, 14405.56640625, -37.87808990478516))
+			elseif NAME_POINT.Value == "ER3" then
+				char.Humanoid:Move(Vector3.new(0,0,-1))
+			elseif NAME_POINT.Value == "ERCHECK" then
+				char.HumanoidRootPart.CFrame = CFrame.new(35000.125, 4.7001543045043945, -39.22102737426758)
+			else
+				char.HumanoidRootPart.CFrame = CFrame.new(35000.125, 4.7001543045043945, -39.22102737426758)
+			end
+		end	
+		lasttime = tick()
+	end
+end)
 
 -- Create Part in Map
 function create_Part_Point()
