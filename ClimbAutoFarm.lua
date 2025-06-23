@@ -1,13 +1,11 @@
 -- Auto Farm SETTINGS
-setings_script = {
-	["ScriptCheck"] = false,
-}
+_G.ScritpStatus = false
 settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
 }
 
-if setings_script.ScriptCheck then
+if _G.ScritpStatus then
 	game.Players.localPlayer:Kick("This script is not supported in this game.")
 	return
 end
@@ -21,7 +19,7 @@ end
 repeat
 	
 until game:IsLoaded() and game.Players.LocalPlayer.CharacterAdded
-
+_G.ScritpStatus = true
 setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
 local lasttime = 0
 
