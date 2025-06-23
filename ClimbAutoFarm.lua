@@ -18,7 +18,7 @@ end
 
 repeat
 	
-until game:IsLoaded() and game.Players.LocalPlayer.CharacterAdded
+until game:IsLoaded()
 _G.ScritpStatus = true
 setings_script.ScriptCheck = true -- Set to true if you want to check for script compatibility	
 local lasttime = 0
