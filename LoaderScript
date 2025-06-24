@@ -1,1 +1,8 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/ClimbAutoFarm.lua"))()
+local Placeid = game.PlaceId
+if Placeid ~= 123921593837160 then
+  game:GetService("TeleportService"):Teleport(123921593837160)
+  game.Players.LocalPlayer:Kick("Not Map")
+else
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/ClimbAutoFarm.lua"))()
+end
+
