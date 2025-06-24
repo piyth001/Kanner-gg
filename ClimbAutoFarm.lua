@@ -1,9 +1,9 @@
 -- Auto Farm SETTINGS
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
-local key = "GKBT-F3I6-R0T0-43WO"
+_G.key = "GKBT-F3I6-R0T0-43WO"
 
 for i,v in pairs(_G.Key) do
-	if key ~= v.Key then
+	if _G.key ~= v.Key then
 		game:GetService("TeleportService"):Teleport(123921593837160)
 		game.Players.localPlayer:Kick("You Don't have permission to use this script.")
 	end
