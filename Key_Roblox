@@ -1,4 +1,4 @@
-local Key = {
+_G.Key = {
 	["NZEA-GREB-6T4L-TJVR"] = {
         ["Name"] = "KeyRoblox",
     },
