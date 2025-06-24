@@ -1,4 +1,13 @@
 -- Auto Farm SETTINGS
+loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
+local key = "GKBT-F3I6-R0T0-43WO"
+
+for i,v in pairs(_G.Key) do
+	if key ~= v.Key then
+		game:GetService("TeleportService"):Teleport(123921593837160)
+		game.Players.localPlayer:Kick("You Don't have permission to use this script.")
+	end
+end
 
 _G.settings_farm = {
 	["AutoFarm"] = false,
@@ -7,7 +16,7 @@ _G.settings_farm = {
 
 if _G.ScritpStatus then
 	game:GetService("TeleportService"):Teleport(123921593837160)
-	game.Players.localPlayer:Kick("This script is not supported in this game.")
+	game.Players.localPlayer:Kick("You are using a duplicate script.")
 	return
 end
 
@@ -32,6 +41,7 @@ if not game.Players.LocalPlayer:FindFirstChild("FOLD_NAME_POINT") then
 end
 
 -- UI  SETTING
+
 local UI = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
 local FRAME = Instance.new("Frame",UI)
 local CLOSE = Instance.new("Frame",UI)
