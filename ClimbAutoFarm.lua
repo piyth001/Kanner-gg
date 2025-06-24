@@ -1,11 +1,10 @@
 -- Auto Farm SETTINGS
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
-_G.key = "GKBT-F3I6-R0T0-43WO"
-
 for i,v in pairs(_G.Key) do
 	if _G.key ~= v.Key then
 		game:GetService("TeleportService"):Teleport(123921593837160)
 		game.Players.localPlayer:Kick("You Don't have permission to use this script.")
+		return
 	end
 end
 
@@ -17,13 +16,6 @@ _G.settings_farm = {
 if _G.ScritpStatus then
 	game:GetService("TeleportService"):Teleport(123921593837160)
 	game.Players.localPlayer:Kick("You are using a duplicate script.")
-	return
-end
-
-local PlacId = game.PlaceId
-if PlacId ~= 123921593837160 then
-	game:GetService("TeleportService"):Teleport(123921593837160)
-	game.Players.LocalPlayer:Kick("This script is not supported in this game.")
 	return
 end
 
