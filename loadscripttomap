@@ -1,2 +1,2 @@
-
+_G.key = "V4VDEW5IJMJXSYT1" 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/LoaderScript"))()
