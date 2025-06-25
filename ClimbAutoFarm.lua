@@ -1,6 +1,6 @@
-
 -- Auto Farm SETTINGS
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
+
 if _G.key ~= _G.Key[_G.key].Key then
 	game:GetService("TeleportService"):Teleport(123921593837160)
 	game.Players.localPlayer:Kick("You Don't have permission to use this script.")
@@ -209,7 +209,7 @@ function autofarm()
 			if NAME_POINT.Value ==  "ER1" then
 				char.Humanoid:Move(Vector3.new(0,0,-1))
 			elseif NAME_POINT.Value == "ER2" then
-				char.Humanoid:MoveTo(Vector3.new(35000.15625, 14405.56640625, -37.87808990478516))
+				char.Humanoid:MoveTo(Vector3.new(35000.15625, 14405.56640625, -33.87808990478516))
 			elseif NAME_POINT.Value == "ER3" then
 				char.Humanoid:Move(Vector3.new(0,0,-1))
 			elseif NAME_POINT.Value == "ERCHECK" then
@@ -301,7 +301,7 @@ function create_Part_Point()
 	cf1 = Vector3.new(35000.125, 4.7001543045043945, -89.22102737426758)
 	cf2 = Vector3.new(35000.125, 4.7001543045043945, -39.22102737426758)
 	cf3 = Vector3.new(35000.15625, 14405.56640625, -89.87808990478516)
-	cf4 = Vector3.new(35000.15625, 14405.56640625, -37.87808990478516)
+	cf4 = Vector3.new(35000.15625, 14405.56640625, -33.87808990478516)
 	cfpoint = Vector3.new(35000, 1.277984619140625, 129.68069458007812)
 	create(name,cf1,cf2,cf3,cf4,cfpoint)
 end
