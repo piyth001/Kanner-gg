@@ -356,6 +356,7 @@ create_Part_Point()
 createWinjeds:CreateButton({
 	ButtonName = "Button1",
 	ButtonOptionName = "AUTO FARM",
+	Check = _G.settings_farm.AutoFarm,
 	OnClick = function()
 		if _G.settings_farm.AutoFarm then
 			_G.settings_farm.AutoFarm = false
