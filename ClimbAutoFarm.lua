@@ -1,4 +1,5 @@
 -- Auto Farm SETTINGS
+repeat wait(.1) until game:IsLoaded()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
 if _G.key ~= _G.Key[_G.key].Key then
 	game:GetService("TeleportService"):Teleport(123921593837160)
@@ -355,7 +356,6 @@ create_Part_Point()
 createWinjeds:CreateButton({
 	ButtonName = "Button1",
 	ButtonOptionName = "AUTO FARM",
-	Check = _G.settings_farm.AutoFarm,
 	OnClick = function()
 		if _G.settings_farm.AutoFarm then
 			_G.settings_farm.AutoFarm = false
