@@ -14,11 +14,18 @@ createWinjeds:CreateButton({
 	OnClick = function()
 		if _G.settings_farm.AutoFarm then
 			_G.settings_farm.AutoFarm = false
+			_G.settings_farm.connection:Disconnect()
 		else
 			_G.settings_farm.AutoFarm = true
+			_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
 		end
 	end,
 })
+
+
+
+
+
 
 
 		
