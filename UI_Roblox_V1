@@ -97,7 +97,7 @@ function MyUILib:CreateButton(functions)
 	local Stroke = Instance.new("UIStroke",FrameBt)
 	local ButtonOnClick = Instance.new("Frame",Button)
 	local Stroke2 = Instance.new("UIStroke",ButtonOnClick)
-	local IsClick = functions.Check
+	local IsClick = false
 	Stroke.Color = theme
 	Stroke.Thickness = 2
 	FrameBt.Size = UDim2.new(0,150,0,20)
@@ -122,6 +122,10 @@ function MyUILib:CreateButton(functions)
 	ButtonOnClick.Size = UDim2.new(0,15,0,15)
 	ButtonOnClick.BackgroundColor3 = Color3.new(0, 0, 0)
 	Stroke2.Color = theme
+    if functions.Check then
+        IsClick = true
+		ButtonOnClick.BackgroundColor3 = Color3.new(0.596078, 0, 0.0117647)
+    end
 	ButtonOnClick.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			if IsClick then
