@@ -1,0 +1,214 @@
+local _UIS = game:GetService("UserInputService")
+
+local MyUILib = {}
+MyUILib.__index = MyUILib
+
+local parentplr = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+local ParamCor = {
+	Red = Color3.new(0.882353, 0, 0.0156863),
+	Green = Color3.new(0.0313725, 1, 0.176471),
+	Blue = Color3.new(0, 0.0509804, 1),
+	Light_Blue = Color3.new(0.027451, 0.917647, 1)
+}
+local theme = ParamCor.Blue
+
+function MyUILib.CreateWindows(names)
+	local screen = Instance.new("ScreenGui",parentplr)
+	local Frame = Instance.new("Frame",screen)
+	local Frame1 = Instance.new("Frame",Frame)
+	local stroke = Instance.new("UIStroke",Frame)
+	local stroke2 = Instance.new("UIStroke",Frame1)
+	local UiList = Instance.new("UIListLayout",Frame1)
+	local UiPaddings = Instance.new("UIPadding",Frame1)
+	screen.Name = "Saber Hub"
+	UiPaddings.PaddingLeft = UDim.new(0.006, 0)
+	UiPaddings.PaddingTop = UDim.new(0.006,0)
+	UiList.FillDirection = Enum.FillDirection.Vertical
+	UiList.SortOrder = Enum.SortOrder.LayoutOrder
+	UiList.ItemLineAlignment = Enum.ItemLineAlignment.Automatic
+	UiList.Padding = UDim.new(0,15)
+	Frame.AnchorPoint = Vector2.new(0.5,0.5)
+	Frame.Size = UDim2.new(0,550,0,550)
+	Frame.Position = UDim2.new(0.5,0,0.5,0)
+	Frame.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+	Frame.Name = "UI_Menu"
+	
+	Frame1.Position = UDim2.new(0.009, 0,0.01, 0)
+	Frame1.Size = UDim2.new(0,540,0,540)
+	Frame1.BackgroundColor3 = Color3.new(0.0862745, 0.0862745, 0.0862745)
+	Frame1.Name = "MENU"
+	
+	stroke2.Color = theme
+	stroke2.Thickness = 2
+	
+	stroke.Color = theme
+	stroke.Thickness = 2
+	
+	
+	local draggableFrame = Frame
+
+	local isDragging = false
+
+	local dragStart
+	local startPosition
+	local dragOffset 
+
+	draggableFrame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			isDragging = true
+
+			dragStart = input.Position
+			startPosition = draggableFrame.Position
+
+			dragOffset = startPosition - UDim2.fromOffset(dragStart.X, dragStart.Y)
+
+			return Enum.ContextActionResult.Sink
+		end
+	end)
+
+	draggableFrame.InputChanged:Connect(function(input)
+		if isDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+			local newPosition = UDim2.fromOffset(input.Position.X, input.Position.Y) + dragOffset
+
+			draggableFrame.Position = newPosition
+		end
+	end)
+
+
+	draggableFrame.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			isDragging = false
+		end
+	end)
+	
+	hideWinjeds(Frame,screen)
+	
+	
+	-- return ui settings
+	local self = setmetatable({},MyUILib)
+	self.Parent = Frame1
+	return self
+end
+
+
+function MyUILib:CreateButton(functions)
+	local FrameBt = Instance.new("Frame",self.Parent)
+	local Button = Instance.new("TextLabel",FrameBt)
+	local Stroke = Instance.new("UIStroke",FrameBt)
+	local ButtonOnClick = Instance.new("Frame",Button)
+	local Stroke2 = Instance.new("UIStroke",ButtonOnClick)
+	local IsClick = false
+	Stroke.Color = theme
+	Stroke.Thickness = 2
+	FrameBt.Size = UDim2.new(0,150,0,20)
+	FrameBt.BackgroundTransparency = 1
+	FrameBt.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
+	Button.Name = functions.ButtonName
+	Button.BackgroundColor3 = Color3.new(0.384314, 0.384314, 0.384314)
+	Button.Size = UDim2.new(1,0,1,0)
+	Button.BackgroundTransparency = 1
+	Button.Text = functions.ButtonOptionName
+	Button.TextColor3 = Color3.new(1, 1, 1)
+	Button.TextScaled = false
+	Button.FontFace.Weight = Enum.FontWeight.Bold
+	Button.RichText = true
+	Button.Font = Enum.Font.Cartoon
+	Button.TextSize = 15
+	Button.TextXAlignment = Enum.TextXAlignment.Left
+	Button.TextStrokeColor3 = Color3.new(0, 0, 0)
+	Button.TextStrokeTransparency = 0.2
+	ButtonOnClick.Name = functions.ButtonName
+	ButtonOnClick.Position = UDim2.new(0,170,0,3)
+	ButtonOnClick.Size = UDim2.new(0,15,0,15)
+	ButtonOnClick.BackgroundColor3 = Color3.new(0, 0, 0)
+	Stroke2.Color = theme
+	ButtonOnClick.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			if IsClick then
+				IsClick = false
+				ButtonOnClick.BackgroundColor3 = Color3.new(0, 0, 0)
+				functions.OnClick()
+				return false
+			else
+				IsClick = true
+				ButtonOnClick.BackgroundColor3 = Color3.new(0.596078, 0, 0.0117647)
+				functions.OnClick()
+				return true
+			end
+		end
+	end)
+end
+
+function hideWinjeds(Frame,screen)
+	-- Hide Winjeds
+	if _UIS.KeyboardEnabled then
+		_UIS.InputBegan:Connect(function(input, process)
+			if process then return end
+			if input.KeyCode == Enum.KeyCode.LeftControl then
+				if Frame.Visible then
+					Frame.Visible = false
+				else
+					Frame.Visible = true
+				end
+			end
+		end)
+	elseif _UIS.TouchEnabled then
+		local CloseButton = Instance.new("Frame",screen)
+		local TextButton = Instance.new("TextLabel",CloseButton)
+		local UiStroke = Instance.new("UIStroke",CloseButton)
+		if Frame.Visible then
+			UiStroke.Transparency = 0
+			UiStroke.Thickness = 2
+			CloseButton.Name = "CLOSE/OPEN"
+			CloseButton.Size = UDim2.new(0, 80,0, 40)
+			TextButton.TextScaled = true
+			TextButton.BackgroundTransparency =1
+			TextButton.RichText = true
+			TextButton.Size = UDim2.new(1, 0,1, 0)
+			TextButton.TextStrokeTransparency = 0
+			TextButton.TextStrokeColor3 = Color3.new(0,0,0)
+			TextButton.Font = Enum.Font.Cartoon
+			TextButton.Text = "<b>OPEN</b>"
+			TextButton.TextColor3 = Color3.new(0, 0, 0)
+			TextButton.TextStrokeColor3 = Color3.new(0,0,0)
+			CloseButton.BackgroundColor3 = Color3.new(0.105882, 0.580392, 0.0745098)
+			UiStroke.Color = Color3.new(0.0784314, 0.415686, 0.0196078)
+		else
+			UiStroke.Color = Color3.new(0.231373, 0, 0)
+			UiStroke.Transparency = 0
+			UiStroke.Thickness = 2
+			CloseButton.Name = "CLOSE/OPEN"
+			CloseButton.Size = UDim2.new(0, 80,0, 40)
+			CloseButton.BackgroundColor3 = Color3.new(0.631373, 0.027451, 0.0392157)
+			TextButton.TextScaled = true
+			TextButton.BackgroundTransparency =1
+			TextButton.RichText = true
+			TextButton.Text = "<b>CLOSE</b>"
+			TextButton.Size = UDim2.new(1, 0,1, 0)
+			TextButton.TextColor3 = Color3.new(0, 0, 0)
+			TextButton.TextStrokeTransparency = 0
+			TextButton.TextStrokeColor3 = Color3.new(0,0,0)
+			TextButton.Font = Enum.Font.Cartoon
+		end
+		CloseButton.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if Frame.Visible then
+					Frame.Visible = false
+					TextButton.Text = "<b>CLOSE</b>"
+					TextButton.TextColor3 = Color3.new(0, 0, 0)
+					TextButton.TextStrokeColor3 = Color3.new(0,0,0)
+					CloseButton.BackgroundColor3 = Color3.new(0.631373, 0.027451, 0.0392157)
+					UiStroke.Color = Color3.new(0.231373, 0, 0)
+				else
+					Frame.Visible = true
+					TextButton.Text = "<b>OPEN</b>"
+					TextButton.TextColor3 = Color3.new(0, 0, 0)
+					TextButton.TextStrokeColor3 = Color3.new(0,0,0)
+					CloseButton.BackgroundColor3 = Color3.new(0.105882, 0.580392, 0.0745098)
+					UiStroke.Color = Color3.new(0.0784314, 0.415686, 0.0196078)
+				end
+			end
+		end)
+	end
+end
+return MyUILib
