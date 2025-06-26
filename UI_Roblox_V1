@@ -32,19 +32,19 @@ function MyUILib.CreateWindows(names)
 	Frame.Position = UDim2.new(0.5,0,0.5,0)
 	Frame.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
 	Frame.Name = "UI_Menu"
-
+	
 	Frame1.Position = UDim2.new(0.009, 0,0.01, 0)
 	Frame1.Size = UDim2.new(0,540,0,540)
 	Frame1.BackgroundColor3 = Color3.new(0.0862745, 0.0862745, 0.0862745)
 	Frame1.Name = "MENU"
-
+	
 	stroke2.Color = theme
 	stroke2.Thickness = 2
-
+	
 	stroke.Color = theme
 	stroke.Thickness = 2
-
-
+	
+	
 	local draggableFrame = Frame
 
 	local isDragging = false
@@ -80,10 +80,10 @@ function MyUILib.CreateWindows(names)
 			isDragging = false
 		end
 	end)
-
+	
 	hideWinjeds(Frame,screen)
-
-
+	
+	
 	-- return ui settings
 	local self = setmetatable({},MyUILib)
 	self.Parent = Frame1
@@ -211,14 +211,4 @@ function hideWinjeds(Frame,screen)
 		end)
 	end
 end
-
-
-
-MyUILib.CreateWindows():CreateButton({
-	ButtonName = "Button1",
-	ButtonOptionName = "AUTO FARM",
-	OnClick = function()
-	end,
-})
-
-
+return MyUILib
