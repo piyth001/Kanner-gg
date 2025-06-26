@@ -7,8 +7,7 @@ if _G.key ~= _G.Key[_G.key].Key then
 	return
 end
 
-
-
+		
 
 
 if _G.settings_farm == nil or _G.settings_farm == false then
@@ -337,7 +336,7 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
 		genpt.Touched:Connect(function(plr)
 			if tostring(plr.Parent) ~= tostring(char) then return end
 			local DEBRIS = game:GetService("Debris")
-			local Part3 = Instance.new("Part",workspace) Part3.Transparency = 0 Part3.Size = cframe3 Part3.Name = name.."3" Part3.Touched:Connect(function(plr) if tostring(plr.Parent) == tostring(game.Players.LocalPlayer) then NAME_POINT.Value = Part3.Name DEBRIS:AddItem(Part3,.3) end end)
+			local Part3 = Instance.new("Part",workspace) Part3.Transparency = 0 Part3.Position = cframe3 Part3.Size = Vector3.new(5,5,5) Part3.Name = name.."3" Part3.Touched:Connect(function(plr) if tostring(plr.Parent) == tostring(game.Players.LocalPlayer) then NAME_POINT.Value = Part3.Name DEBRIS:AddItem(Part3,.3) end end)
 			NAME_POINT.Value = genpt.Name
 		end)
 	end
