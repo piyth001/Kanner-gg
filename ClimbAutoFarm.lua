@@ -367,7 +367,7 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
 		part.CanCollide = false
 		part.Anchored = true 
 		part.Name = name.."CHECK" 
-		part.Size = Vector3.new(1000,1000,50)
+		part.Size = Vector3.new(1000,1000,70)
 		part.Position = cframech
 		part.Transparency = 1
 		part.Touched:Connect(function(plr)
