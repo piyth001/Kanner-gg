@@ -1,3 +1,7 @@
+_G.settings_farm = {
+	["AutoFarm"] = false,
+	["connection"] = nil
+}
 _G.key = "V4VDEW5IJMJXSYT1" 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/LoaderScript"))()
-_G.settings_farm.AutoFarm = true
+
