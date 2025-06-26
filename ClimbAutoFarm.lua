@@ -1,11 +1,25 @@
 -- Auto Farm SETTINGS
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
-
 if _G.key ~= _G.Key[_G.key].Key then
 	game:GetService("TeleportService"):Teleport(123921593837160)
 	game.Players.localPlayer:Kick("You Don't have permission to use this script.")
 	return
 end
+local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/UI_Roblox_V1"))()
+local createWinjeds = ui.CreateWindows()
+
+createWinjeds:CreateButton({
+	ButtonName = "Button1",
+	ButtonOptionName = "AUTO FARM",
+	OnClick = function()
+		if _G.settings_farm.AutoFarm then
+			_G.settings_farm.AutoFarm = false
+		else
+			_G.settings_farm.AutoFarm = true
+		end
+	end,
+})
+
 
 		
 
@@ -36,85 +50,6 @@ if not game.Players.LocalPlayer:FindFirstChild("FOLD_NAME_POINT") then
 	NAME_POINT = Instance.new("StringValue",FOLD) NAME_POINT.Name = "CHECK_POINT"
 end
 
--- UI  SETTING
-
-local UI = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
-local FRAME = Instance.new("Frame",UI)
-local CLOSE = Instance.new("Frame",UI)
-local TEXT = Instance.new("TextLabel",CLOSE)
-local CONER1 = Instance.new("UICorner",FRAME)
-local CONER2 = Instance.new("UICorner",CLOSE)
-local UISTROKE = Instance.new("UIStroke",FRAME)
-local BUTTON1 = Instance.new("TextButton",FRAME)
-
-local TEXT1 = Instance.new("TextLabel",FRAME)
-local char = game.Players.localPlayer.Character 
-local check1 = false 
-
-UI.Name = "HackUi"
-
-CLOSE.Name = "Close"
-CLOSE.Size = UDim2.new(0, 76,0, 48)
-CLOSE.BackgroundColor3 = Color3.new(1, 0, 0)
-TEXT.Text = "Close"
-TEXT.TextColor3 = Color3.new(0, 0, 0)
-TEXT.Size = UDim2.new(1,0,1,0)
-TEXT.TextSize = 20
-TEXT.BackgroundTransparency = 1
-BUTTON1.Position = UDim2.new(0,0,0,50)
-BUTTON1.Size = UDim2.new(0,115,0,36)
-BUTTON1.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
-BUTTON1.Text = "Close"
-BUTTON1.TextSize = 20
-TEXT1.Position = UDim2.new(0,10,0,0)
-TEXT1.Size = UDim2.new(0,115,0,36)
-TEXT1.TextSize = 20
-TEXT1.TextColor3 = Color3.new(0, 0, 0)
-TEXT1.Text = "Auto Farm"
-
-UISTROKE.Thickness = 4
-CONER1.CornerRadius = UDim.new(0,15)
-CONER2.CornerRadius = UDim.new(0,8)
-FRAME.Visible = false
-FRAME.Size = UDim2.new(0, 505,0, 378)
-
-CONER1:Clone().Parent = BUTTON1
-UISTROKE:Clone().Parent = BUTTON1
-CONER1:Clone().Parent = TEXT1
-local a = UISTROKE:Clone()
-a.Color = Color3.new(1, 1, 1)
-a.Parent = TEXT
-CLOSE.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		if FRAME.Visible then
-			FRAME.Visible = false
-			CLOSE.BackgroundColor3 = Color3.new(1, 0, 0)
-			TEXT.Text = "Close"
-		else
-			FRAME.Visible = true
-			CLOSE.BackgroundColor3 = Color3.new(0.0392157, 1, 0.0705882)
-			TEXT.Text = "Open"	
-		end
-	end
-end)
-
-
-
-
-BUTTON1.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		if not _G.settings_farm.AutoFarm then
-			_G.settings_farm.AutoFarm = true
-			BUTTON1.BackgroundColor3 = Color3.new(0.0705882, 1, 0.0235294)
-			BUTTON1.Text = "OPEN"
-			_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
-		else
-			_G.settings_farm.AutoFarm = false
-			BUTTON1.BackgroundColor3 = Color3.new(1, 0, 0.0156863)
-			BUTTON1.Text = "CLOSE"
-		end
-	end
-end)
 
 local magic_Touch = workspace
 
@@ -433,61 +368,3 @@ create_Part_Point()
 ----------------------------------------------
 ----------------------------------------------
 ----------------------------------------------
-
--- ตัวแปรสำหรับ UI ที่เราจะลาก (ในที่นี้คือ Parent ของ Script นี้)
-local draggableFrame = FRAME
-
--- เรียกใช้ UserInputService เพื่อติดตามการกระทำของผู้เล่น (เมาส์, สัมผัส)
-
-
--- ตัวแปรสถานะเพื่อเช็คว่ากำลังลากอยู่หรือไม่
-local isDragging = false
-
--- ตัวแปรสำหรับเก็บตำแหน่งเริ่มต้นของการลาก และตำแหน่งเริ่มต้นของ UI
-local dragStart
-local startPosition
-local dragOffset -- ตัวแปรเก็บระยะห่างระหว่างจุดที่คลิกกับมุมซ้ายบนของ UI
-
--- เชื่อมต่อ Event เมื่อผู้เล่นเริ่มกดที่ UI นี้
-draggableFrame.InputBegan:Connect(function(input)
-	-- เช็คว่าเป็นการคลิกซ้ายของเมาส์ หรือการแตะหน้าจอ
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		isDragging = true
-
-		-- เก็บตำแหน่งที่เริ่มกดเมาส์
-		dragStart = input.Position
-		-- เก็บตำแหน่งเริ่มต้นของ Frame
-		startPosition = draggableFrame.Position
-
-		-- คำนวณหาตำแหน่งที่ผู้เล่นกดบน Frame เทียบกับมุมซ้ายบนของ Frame
-		-- เพื่อให้เวลาลาก UI จะไม่กระโดดไปที่ตำแหน่งของเมาส์ทันที
-		dragOffset = startPosition - UDim2.fromOffset(dragStart.X, dragStart.Y)
-
-		-- ทำให้ Frame นี้ไม่กิน Input ของ Object อื่นที่อยู่ข้างใต้มัน
-		-- (ถ้าไม่ทำ บ่อยครั้งจะเกิดปัญหาลากแล้วไปโดน UI อื่น)
-		return Enum.ContextActionResult.Sink
-	end
-end)
-
--- เชื่อมต่อ Event เมื่อผู้เล่นขยับเมาส์ (หลังจากกดแล้ว)
-draggableFrame.InputChanged:Connect(function(input)
-	-- เช็คว่ากำลังลากอยู่ และเป็นการขยับเมาส์หรือการลากนิ้วบนจอ
-	if isDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-		-- คำนวณตำแหน่งใหม่ของ UI
-		-- โดยเอาตำแหน่งปัจจุบันของเมาส์มาบวกกับ offset ที่เราคำนวณไว้ตอนแรก
-		local newPosition = UDim2.fromOffset(input.Position.X, input.Position.Y) + dragOffset
-
-		-- อัปเดตตำแหน่งของ UI
-		draggableFrame.Position = newPosition
-	end
-end)
-
-
--- เชื่อมต่อ Event เมื่อผู้เล่นปล่อยเมาส์หรือยกนิ้วออก
-draggableFrame.InputEnded:Connect(function(input)
-	-- เช็คว่าเป็นการปล่อยคลิกซ้ายของเมาส์ หรือยกนิ้วออกจากการแตะหน้าจอ
-	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-		-- หยุดการลาก
-		isDragging = false
-	end
-end)
