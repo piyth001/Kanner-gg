@@ -1,5 +1,5 @@
 -- Auto Farm SETTINGS
-repeat wait(.1) until game:IsLoaded()
+repeat wait(.01) until game:IsLoaded()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/Key_Roblox"))()
 if _G.key ~= _G.Key[_G.key].Key then
 	game:GetService("TeleportService"):Teleport(123921593837160)
