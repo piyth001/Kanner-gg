@@ -8,19 +8,6 @@ end
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/UI_Roblox_V1"))()
 local createWinjeds = ui.CreateWindows()
 
-createWinjeds:CreateButton({
-	ButtonName = "Button1",
-	ButtonOptionName = "AUTO FARM",
-	OnClick = function()
-		if _G.settings_farm.AutoFarm then
-			_G.settings_farm.AutoFarm = false
-			_G.settings_farm.connection:Disconnect()
-		else
-			_G.settings_farm.AutoFarm = true
-			_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
-		end
-	end,
-})
 
 
 
@@ -28,8 +15,8 @@ createWinjeds:CreateButton({
 
 
 
-		
 
+	
 
 if _G.settings_farm == nil or _G.settings_farm == false then
     _G.settings_farm = {
@@ -362,16 +349,20 @@ end
 
 create_Part_Point()
 
-----------------------------------------------
-----------------------------------------------
-----------------------------------------------
+-- UI SETTINGS
 
 
-----------------------------------------------
-----------------------------------------------
-----------------------------------------------
-
-
-----------------------------------------------
-----------------------------------------------
-----------------------------------------------
+createWinjeds:CreateButton({
+	ButtonName = "Button1",
+	ButtonOptionName = "AUTO FARM",
+	Check = _G.settings_farm.AutoFarm,
+	OnClick = function()
+		if _G.settings_farm.AutoFarm then
+			_G.settings_farm.AutoFarm = false
+			_G.settings_farm.connection:Disconnect()
+		else
+			_G.settings_farm.AutoFarm = true
+			_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
+		end
+	end,
+})
