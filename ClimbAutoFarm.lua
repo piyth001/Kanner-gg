@@ -11,12 +11,12 @@ end
 
 
 
-
-_G.settings_farm = {
+if _G.settings_farm == nil or _G.settings_farm == false then
+    _G.settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
 }
-
+end
 if _G.ScritpStatus then
 	game:GetService("TeleportService"):Teleport(123921593837160)
 	game.Players.localPlayer:Kick("You are using a duplicate script.")
