@@ -7,6 +7,12 @@ if _G.key ~= _G.Key[_G.key].Key then
 	return
 end
 
+
+
+
+
+
+
 _G.settings_farm = {
 	["AutoFarm"] = false,
 	["connection"] = nil
@@ -20,6 +26,7 @@ end
 
 _G.ScritpStatus = true
 local lasttime = 0
+
 
 local player = game.Players.LocalPlayer
 local char = player.Character
@@ -79,9 +86,6 @@ CONER1:Clone().Parent = TEXT1
 local a = UISTROKE:Clone()
 a.Color = Color3.new(1, 1, 1)
 a.Parent = TEXT
-
-
-
 CLOSE.InputBegan:Connect(function(input)
 	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 		if FRAME.Visible then
@@ -95,6 +99,8 @@ CLOSE.InputBegan:Connect(function(input)
 		end
 	end
 end)
+
+
 
 
 BUTTON1.InputBegan:Connect(function(input)
@@ -112,9 +118,9 @@ BUTTON1.InputBegan:Connect(function(input)
 	end
 end)
 
+local magic_Touch = workspace["\229\156\186\230\153\175"]["8"]
 
 --	setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.Position))
-_G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
 function autofarm()
 	if (tick() - lasttime) > 0.01 then
 		
@@ -208,7 +214,9 @@ function autofarm()
 		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==8 then
 			if NAME_POINT.Value ==  "ER1" then
 				char.Humanoid:Move(Vector3.new(0,0,-1))
-			elseif NAME_POINT.Value == "ER2" then
+			elseif NAME_POINT.Value == "ER2" and magic_Touch["\233\161\182\233\131\168\229\185\179\229\143\176"]:FindFirstChild("MagicTouch") then
+				char.Humanoid:MoveTo(Vector3.new(34987.2734, 14403.3164, -68.6299057, -0.948092878, 4.43392771e-08, 0.317993522, 2.034845e-08, 1, -7.87659289e-08, -0.317993522, -6.8206738e-08, -0.948092878))
+			elseif NAME_POINT.Value == "ERGEM" or NAME_POINT.Value == "ER2" then
 				char.Humanoid:MoveTo(Vector3.new(35000.15625, 14405.56640625, -33.87808990478516))
 			elseif NAME_POINT.Value == "ER3" then
 				char.Humanoid:Move(Vector3.new(0,0,-1))
@@ -220,6 +228,10 @@ function autofarm()
 		end	
 		lasttime = tick()
 	end
+end
+if _G.settings_farm.AutoFarm then
+    print("Connect Script")
+    _G.settings_farm.connection = render.RenderStepped:Connect(autofarm)
 end
 
 -- Create Part in Map
@@ -233,7 +245,8 @@ function create_Part_Point()
 	cf3 = Vector3.new(-5.225947856903076, 14401.1005859375, -112.741455078125)
 	cf4 = Vector3.new(-4.000385761260986, 14400.9970703125, -57.12051773071289)
 	cfpoint = Vector3.new(-3.7412192821502686, 0.936529278755188, 43.164588928222656)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 	
 	-- World Two
 	local name,cf1,cf2,cf3,cf4,cfpoint
@@ -243,7 +256,8 @@ function create_Part_Point()
 	cf3= Vector3.new(4999.22607421875, 14403.4443359375, -94.53253173828125)
 	cf4 = Vector3.new(4998.923828125, 14402.9365234375, -58.3597640991211)
 	cfpoint = Vector3.new(4999.43798828125, 2.2508902549743652, 51.2280387878418)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 	
 	-- World Three
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -253,7 +267,8 @@ function create_Part_Point()
 	cf3 = Vector3.new(10001.2939453125, 14404.140625, -87.9701156616211)
 	cf4 = Vector3.new(10001.2939453125, 14404.140625, -31.9701156616211)
 	cfpoint = Vector3.new(10001.9267578125, 2.198415517807007, 66.47831726074219)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 
 	-- World Four
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -263,7 +278,8 @@ function create_Part_Point()
 	cf3 = Vector3.new(14996.3310546875, 14404.634765625, -176.02198791503906)
 	cf4 = Vector3.new(14996.7353515625, 14404.642578125, -134.61813354492188)
 	cfpoint = Vector3.new(14997.0166015625, 3.2328836917877197, 25.82378387451172)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 
 	-- World Five
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -273,7 +289,8 @@ function create_Part_Point()
 	cf3 = Vector3.new(20000.912109375, 14401.9912109375, -134.8295440673828)
 	cf4 = Vector3.new(20000.912109375, 14401.9912109375, -74.8295440673828)
 	cfpoint = Vector3.new(20000, 2.436941146850586, 62.311275482177734)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 
 	-- World Six
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -283,7 +300,8 @@ function create_Part_Point()
 	cf3 = Vector3.new(25000.142578125, 14406.12890625, -89.93489837646484)
 	cf4 = Vector3.new(25000.142578125, 14406.12890625, -37.93489837646484)
 	cfpoint = Vector3.new(25000, 1.277872085571289, 74.27454376220703)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 
 	-- World Seven
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -293,7 +311,8 @@ function create_Part_Point()
 	cf3 = Vector3.new(30000.89453125, 14401.49609375, -131.16964721679688)
 	cf4 = Vector3.new(30000.89453125, 14401.49609375, -72.16964721679688)
 	cfpoint = Vector3.new(30000, -1, 93.03144073486328)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(0,0,0)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 
 	-- World Eight
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -303,10 +322,26 @@ function create_Part_Point()
 	cf3 = Vector3.new(35000.15625, 14405.56640625, -89.87808990478516)
 	cf4 = Vector3.new(35000.15625, 14405.56640625, -33.87808990478516)
 	cfpoint = Vector3.new(35000, 1.277984619140625, 129.68069458007812)
-	create(name,cf1,cf2,cf3,cf4,cfpoint)
+	local gemcf1 = Vector3.new(34984.92578125, 14405.50390625, -67.86906433105469)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
 end
 
-function create(name,cframech,cframe1,cframe2,cframe3,cframepoint)
+function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
+	if not workspace:FindFirstChild(name.."GEM") then
+		local genpt = Instance.new("Part",workspace)
+		genpt.Name = name.."GEM"
+		genpt.Size = Vector3.new(5,5,5)
+		genpt.CanCollide = false
+		genpt.Anchored = true
+		genpt.Transparency = 1
+		genpt.Position = gemcf
+		genpt.Touched:Connect(function(plr)
+			if tostring(plr.Parent) ~= tostring(char) then return end
+			local DEBRIS = game:GetService("Debris")
+			local Part3 = Instance.new("Part",workspace) Part3.Transparency = 0 Part3.Size = cframe3 Part3.Name = name.."3" Part3.Touched:Connect(function(plr) if tostring(plr.Parent) == tostring(game.Players.LocalPlayer) then NAME_POINT.Value = Part3.Name DEBRIS:AddItem(Part3,.3) end end)
+			NAME_POINT.Value = genpt.Name
+		end)
+	end
 	if not workspace:FindFirstChild(name.."POINT") then
 		local pt = Instance.new("Part",workspace)
 		pt.Name = name.."POINT"
@@ -375,8 +410,6 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint)
 		Part2.Touched:Connect(function(plr)
 			if tostring(plr.Parent) == tostring(char) then
 				if check1 == false then return end
-				local DEBRIS = game:GetService("Debris")
-				local Part3 = Instance.new("Part",workspace) Part3.Transparency = 0 Part3.Size = cframe3 Part3.Name = name.."3" Part3.Touched:Connect(function(plr) if tostring(plr.Parent) == tostring(game.Players.LocalPlayer) then NAME_POINT.Value = Part3.Name DEBRIS:AddItem(Part3,.3) end end)
 				check1 = false
 				NAME_POINT.Value = Part2.Name
 				Part2.Color = Color3.new(0.101961, 1, 0)
