@@ -213,7 +213,7 @@ function autofarm()
 		elseif tonumber(game:GetService("Players").LocalPlayer.NowWorld.Value) ==8 then
 			if NAME_POINT.Value ==  "ER1" then
 				char.Humanoid:Move(Vector3.new(0,0,-1))
-			elseif NAME_POINT.Value == "ER2" and magic_Touch:FindFirstChild("\229\161\148\233\161\182\233\153\132\233\173\148\229\165\150\229\138\177") then
+			elseif NAME_POINT.Value == "ER2" and workspace["\229\161\148\233\161\182\233\153\132\233\173\148\229\165\150\229\138\177"]["\229\174\157\231\159\179"]["Meshes/\229\174\157\231\159\179 (1)"]["FX_\233\187\132"]["\230\152\159\230\152\159"].Enabled then
 				char.Humanoid:MoveTo(Vector3.new(34987.2734, 14403.3164, -68.6299057, -0.948092878, 4.43392771e-08, 0.317993522, 2.034845e-08, 1, -7.87659289e-08, -0.317993522, -6.8206738e-08, -0.948092878))
 			elseif NAME_POINT.Value == "ERGEM" or NAME_POINT.Value == "ER2" then
 				char.Humanoid:MoveTo(Vector3.new(35000.15625, 14405.56640625, -33.87808990478516))
