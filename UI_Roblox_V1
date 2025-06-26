@@ -97,7 +97,7 @@ function MyUILib:CreateButton(functions)
 	local Stroke = Instance.new("UIStroke",FrameBt)
 	local ButtonOnClick = Instance.new("Frame",Button)
 	local Stroke2 = Instance.new("UIStroke",ButtonOnClick)
-	local IsClick = false
+	local IsClick = functions.Check
 	Stroke.Color = theme
 	Stroke.Thickness = 2
 	FrameBt.Size = UDim2.new(0,150,0,20)
