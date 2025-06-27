@@ -6,6 +6,12 @@ if _G.key ~= _G.Key[_G.key].Key then
 	game.Players.localPlayer:Kick("You Don't have permission to use this script.")
 	return
 end
+
+if _G.ScritpStatus then
+	game:GetService("TeleportService"):Teleport(123921593837160)
+	game.Players.localPlayer:Kick("You are using a duplicate script.")
+	return
+end
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/UI_Roblox_V1"))()
 local createWinjeds = ui.CreateWindows()
 
@@ -24,11 +30,6 @@ if _G.settings_farm == nil or _G.settings_farm == false then
 	["AutoFarm"] = false,
 	["connection"] = nil
 }
-end
-if _G.ScritpStatus then
-	game:GetService("TeleportService"):Teleport(123921593837160)
-	game.Players.localPlayer:Kick("You are using a duplicate script.")
-	return
 end
 
 _G.ScritpStatus = true
@@ -136,7 +137,7 @@ local wolrd_name = {
 		["cf1"] = Vector3.new(39998.94921875, 1.8401930332183838, -222.32025146484375),
 		["cf2"] = CFrame.new(39998.94921875, 1.8401930332183838, -172.32025146484375),
 		["cf3"] = Vector3.new(39999.046875, 14403.109375, -220.43475341796875),
-		["cf4"] = Vector3.new(39999.046875, 14403.109375, -170.43475341796875),
+		["cf4"] = Vector3.new(39999.046875, 14403.109375, -166.43475341796875),
 		["cfpoint"] = Vector3.new(39998.1015625, 1.6268491744995117, 20.27294921875),
 		["cframe_gem"] = Vector3.new(39986.12890625, 14404.6689453125, -206.27294921875),
 		["check_gem"] = nil
@@ -286,7 +287,7 @@ function create_Part_Point()
 	cf1 = Vector3.new(39998.94921875, 1.8401930332183838, -222.32025146484375)
 	cf2 = Vector3.new(39998.94921875, 1.8401930332183838, -172.32025146484375)
 	cf3 = Vector3.new(39999.046875, 14403.109375, -220.43475341796875)
-	cf4 = Vector3.new(39999.046875, 14403.109375, -167.43475341796875)
+	cf4 = Vector3.new(39999.046875, 14403.109375, -160.43475341796875)
 	cfpoint = Vector3.new(39998.1015625, 1.6268491744995117, 20.27294921875)
 	local gemcf1 = Vector3.new(39986.12890625, 14404.6689453125, -206.27294921875)
 	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
@@ -309,7 +310,7 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
 		genpt.Touched:Connect(function(plr)
 			if tostring(plr.Parent) ~= tostring(char) then return end
 			local DEBRIS = game:GetService("Debris")
-			local Part3 = Instance.new("Part",folder) Part3.Transparency = 0 Part3.Position = cframe3 Part3.Size = Vector3.new(5,5,5) Part3.Name = name.."3" Part3.Touched:Connect(function(plr) if tostring(plr.Parent) == tostring(game.Players.LocalPlayer) then NAME_POINT.Value = Part3.Name DEBRIS:AddItem(Part3,.3) end end)
+			local Part3 = Instance.new("Part",folder) Part3.CanCollide = false Part3.Anchored = true Part3.Transparency = 0 Part3.Position = cframe3 Part3.Size = Vector3.new(5,5,5) Part3.Name = name.."3" Part3.Touched:Connect(function(plr) if tostring(plr.Parent) == tostring(game.Players.LocalPlayer) then NAME_POINT.Value = Part3.Name DEBRIS:AddItem(Part3,.3) end end)
 			NAME_POINT.Value = genpt.Name
 		end)
 	end
