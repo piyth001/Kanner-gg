@@ -301,7 +301,7 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
 	if not folder_point:FindFirstChild(name.."GEM") then
 		local genpt = Instance.new("Part",folder)
 		genpt.Name = name.."GEM"
-		genpt.Size = Vector3.new(5,5,5)
+		genpt.Size = Vector3.new(3,3,3)
 		genpt.CanCollide = false
 		genpt.Anchored = true
 		genpt.Transparency = 1
