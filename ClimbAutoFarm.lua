@@ -174,7 +174,7 @@ function autofarm()
 			elseif NAME_POINT.Value == name_world.."GEM" or NAME_POINT.Value == name_world.."2" then
 				char.Humanoid:MoveTo(world_test[world_num].cf4)
 			elseif NAME_POINT.Value == name_world.."3" then
-				char.Humanoid:MoveTo(world_test[world_num].cframe_gem)
+				char.Humanoid:MoveTo(world_test[world_num].cf4)
 			elseif NAME_POINT.Value == name_world.."CHECK" then
 				char.HumanoidRootPart.CFrame = world_test[world_num].cf2
 			else
