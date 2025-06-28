@@ -7,6 +7,7 @@ if _G.key ~= _G.Key[_G.key].Key then
 	return
 end
 
+
 if _G.ScritpStatus then
 	game:GetService("TeleportService"):Teleport(123921593837160)
 	game.Players.localPlayer:Kick("You are using a duplicate script.")
@@ -15,15 +16,6 @@ end
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/piyth001/Kanner-gg/refs/heads/main/UI_Roblox_V1"))()
 local createWinjeds = ui.CreateWindows()
 
-
-
-
-
-
-
-
-
-	
 
 if _G.settings_farm == nil or _G.settings_farm == false then
     _G.settings_farm = {
@@ -202,7 +194,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(-4.000385761260986, 14400.9970703125, -57.12051773071289)
 	cfpoint = Vector3.new(-3.7412192821502686, 0.936529278755188, 43.164588928222656)
 	local gemcf1 = Vector3.new(-25.98682403564453, 14400.8662109375, -96.82759094238281)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 	
 	-- World Two
 	local name,cf1,cf2,cf3,cf4,cfpoint
@@ -213,7 +207,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(4998.923828125, 14402.9365234375, -58.3597640991211)
 	cfpoint = Vector3.new(4999.43798828125, 2.2508902549743652, 51.2280387878418)
 	local gemcf1 = Vector3.new(4983.7734375, 14406.9501953125, -85.39076232910156)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 	
 	-- World Three
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -224,7 +220,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(10001.2939453125, 14404.140625, -31.9701156616211)
 	cfpoint = Vector3.new(10001.9267578125, 2.198415517807007, 66.47831726074219)
 	local gemcf1 = Vector3.new(9984.8583984375, 14405.650390625, -69.05514526367188)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 
 	-- World Four
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -235,7 +233,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(14996.7353515625, 14404.642578125, -134.61813354492188)
 	cfpoint = Vector3.new(14997.0166015625, 3.2328836917877197, 25.82378387451172)
 	local gemcf1 = Vector3.new(14979.771484375, 14406.2353515625, -162.00804138183594)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 
 	-- World Five
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -246,7 +246,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(20000.912109375, 14401.9912109375, -74.8295440673828)
 	cfpoint = Vector3.new(20000, 2.436941146850586, 62.311275482177734)
 	local gemcf1 = Vector3.new(19987.859375, 14405.033203125, -110.51150512695312)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 
 	-- World Six
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -257,7 +259,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(25000.142578125, 14406.12890625, -37.93489837646484)
 	cfpoint = Vector3.new(25000, 1.277872085571289, 74.27454376220703)
 	local gemcf1 = Vector3.new(25016.3359375, 14407.66015625, -57.49378204345703)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 
 	-- World Seven
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -268,7 +272,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(30000.89453125, 14401.49609375, -72.16964721679688)
 	cfpoint = Vector3.new(30000, -1, 93.03144073486328)
 	local gemcf1 = Vector3.new(29981.49609375, 14404.587890625, -114.3438720703125)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 
 	-- World Eight
 	local name,cf1,cf2,cf3,cf4,cfpoi
@@ -279,7 +285,9 @@ function create_Part_Point()
 	cf4 = Vector3.new(35000.15625, 14405.56640625, -33.87808990478516)
 	cfpoint = Vector3.new(35000, 1.277984619140625, 129.68069458007812)
 	local gemcf1 = Vector3.new(34984.92578125, 14405.50390625, -67.86906433105469)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new()
+	local cfleft = Vector3.new()
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 
 	-- World Nine
 	local name,cf1,cf2,cf3,cf4,cfpoint
@@ -290,10 +298,12 @@ function create_Part_Point()
 	cf4 = Vector3.new(39999.046875, 14403.109375, -160.43475341796875)
 	cfpoint = Vector3.new(39998.1015625, 1.6268491744995117, 20.27294921875)
 	local gemcf1 = Vector3.new(39986.12890625, 14404.6689453125, -206.27294921875)
-	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1)
+	local cfright = Vector3.new(40004.3203125, 2.5133371353149414, -173.47750854492188)
+	local cfleft = Vector3.new(39992.25390625, 2.5133304595947266, -173.6731719970703)
+	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 end
 
-function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
+function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf,cfright,cfleft)
 	if not workspace:FindFirstChild("Folder_Point") then
 		folder = Instance.new("Folder",workspace)
 		folder.Name = "Folder_Point"
@@ -347,6 +357,34 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf)
 			if tostring(plr.Parent) == tostring(char) then
 				NAME_POINT.Value = part.Name
 				check1 = false
+			end
+		end)
+	end
+	if not folder_point:FindFirstChild(name.."RIGHT") then
+		local right = Instance.new("Part",folder)
+		right.Name = name.."RIGHT"
+		right.Position = cfright
+		right.Anchored = true
+		right.CanCollide = false
+		right.Color = Color3.new(1, 0, 0)
+		right.Size = Vector3.new(4,4,4)
+		right.Touched:Connect(function(plr)
+			if tostring(plr.Parent) == tostring(char) then
+				NAME_POINT.Value = name.."CHECK"
+			end
+		end)
+	end
+	if not folder_point:FindFirstChild(name.."LEFT") then
+		local left = Instance.new("Part",folder)
+		left.Name = name.."LEFT"
+		left.Position = cfleft
+		left.Anchored = true
+		left.CanCollide = false
+		left.Color = Color3.new(1, 0, 0)
+		left.Size = Vector3.new(4,4,4)
+		left.Touched:Connect(function(plr)
+			if tostring(plr.Parent) == tostring(char) then
+				NAME_POINT.Value = name.."CHECK"
 			end
 		end)
 	end
