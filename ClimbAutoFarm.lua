@@ -372,8 +372,10 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf,cfright,
 			if check2 then return end
 			if tostring(plr.Parent) == tostring(char) then
 				NAME_POINT.Value = name.."CHECK"
-				task.wait(3)
 				check2 = true
+				check1 = false
+				task.wait(3)
+				check2 = false
 			end
 		end)
 	end
@@ -389,8 +391,10 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf,cfright,
 			if check2 then return end
 			if tostring(plr.Parent) == tostring(char) then
 				NAME_POINT.Value = name.."CHECK"
-				task.wait(3)
 				check2 = true
+				check1 = false
+				task.wait(3)
+				check2 = false
 			end
 		end)
 	end
