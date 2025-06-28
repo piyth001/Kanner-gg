@@ -302,7 +302,7 @@ function create_Part_Point()
 	local cfleft = Vector3.new(39992.25390625, 2.5133304595947266, -173.6731719970703)
 	create(name,cf1,cf2,cf3,cf4,cfpoint,gemcf1,cfright,cfleft)
 end
-
+local check2 = false
 function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf,cfright,cfleft)
 	if not workspace:FindFirstChild("Folder_Point") then
 		folder = Instance.new("Folder",workspace)
@@ -369,8 +369,11 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf,cfright,
 		right.Color = Color3.new(1, 0, 0)
 		right.Size = Vector3.new(4,4,4)
 		right.Touched:Connect(function(plr)
+			if check2 then return end
 			if tostring(plr.Parent) == tostring(char) then
 				NAME_POINT.Value = name.."CHECK"
+				task.wait(3)
+				check2 = true
 			end
 		end)
 	end
@@ -383,8 +386,11 @@ function create(name,cframech,cframe1,cframe2,cframe3,cframepoint,gemcf,cfright,
 		left.Color = Color3.new(1, 0, 0)
 		left.Size = Vector3.new(4,4,4)
 		left.Touched:Connect(function(plr)
+			if check2 then return end
 			if tostring(plr.Parent) == tostring(char) then
 				NAME_POINT.Value = name.."CHECK"
+				task.wait(3)
+				check2 = true
 			end
 		end)
 	end
