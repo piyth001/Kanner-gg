@@ -39,6 +39,11 @@ if not game.Players.LocalPlayer:FindFirstChild("FOLD_NAME_POINT") then
 end
 
 
+
+-- Delete Models
+local m1 = workspace["\229\156\186\230\153\175"]["9"]["\233\161\182\233\131\168\229\185\179\229\143\176"]["\230\151\165\230\156\172\233\151\168"]
+m1:Destroy()
+
 local magic_Touch = workspace
 
 --	setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.Position))
